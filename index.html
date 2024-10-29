@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SHAPE</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+<style>
+    html, body {
+        margin:0px;
+        height:100%;
+        font-family: Arial, sans-serif; 
+    }
+    #btn {
+        position:absolute;
+        width:100px;
+        height:30px;
+        left:10px;
+        top:10px;
+        background-color: #a0c0f0;
+        border: 1px solid #30a0d0;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        text-align: center;
+    }
+    #btn:hover {
+        background-color: #ffffff;
+        cursor:pointer;
+    }
+</style>
+</head>
+<body>
+<div id="btn" onClick="clickFunc()">CHANGE!</div>
+<script>
+let clickVal = "circle";
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    background(255, 250, 190);
+    noStroke(); 
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  background(255, 250, 190);
+}
+
+function draw() {
+    background(255, 250, 190, 50);
+
+    if (clickVal == "circle") {
+    
+        fill(255, 100, 150, 180); 
+        ellipse(mouseX, mouseY, 130, 130);
+    } else if (clickVal == "rect") {
+       
+        fill(100, 255, 100, 180); 
+        for (let i = 0; i < 8; i++) {
+            let angle = TWO_PI * i / 8;
+            let x = mouseX + cos(angle) * 50;
+            let y = mouseY + sin(angle) * 50;
+            ellipse(x, y, 50, 50);
+        }
+        ellipse(mouseX, mouseY, 50, 50); 
+    } else if (clickVal == "triangle") {
+        
+        fill(100, 150, 255, 180); 
+        beginShape();
+        for (let i = 0; i < 5; i++) {
+            let angle = radians(i * 144); 
+            let x = mouseX + cos(angle) * 60;
+            let y = mouseY + sin(angle) * 60;
+            vertex(x, y);
+        }
+        endShape(CLOSE);
+    }
+}
+
+function clickFunc() {
+    if (clickVal == "circle") {
+        clickVal = "rect";
+    } else if (clickVal == "rect") {
+        clickVal = "triangle";
+    } else {
+        clickVal = "circle";
+    }
+}
+</script>
+</body>
+</html>
