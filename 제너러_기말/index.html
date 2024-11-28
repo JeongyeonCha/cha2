@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cha's Archive</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 인트로 화면 -->
+    <div id="intro-screen">
+        <div class="floating-objects">
+            <!-- 실루엣 이미지들이 여기에 동적으로 추가됩니다 -->
+        </div>
+        <h1 id="intro-title" onclick="navigateToMain()">Cha's Archive</h1>
+    </div>
+
+    <!-- 메인 페이지 -->
+    <main id="main-page" class="hidden">
+        <h1>Cha's Archive</h1>
+        <div class="grid-container">
+            <!-- 제품 목록이 여기에 동적으로 추가됩니다 -->
+        </div>
+    </main>
+
+    <!-- 팝업 -->
+    <div id="popup" class="hidden">
+        <button class="close-btn" onclick="closePopup()">✖</button>
+        <img src="" alt="">
+        <div class="popup-content">
+            <h2 class="popup-title"></h2>
+            <p class="popup-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
